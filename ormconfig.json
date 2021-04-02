@@ -1,0 +1,21 @@
+[
+  {
+    "name": "default",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "database": "template-db",
+    "username": "user",
+    "password": "password",
+    "entities": ["{src,dist}/models/entities/**.entity.{ts,js}"],
+    "logging": true,
+    "synchronize": false,
+    "migrationsTableName": "migrations",
+    "migrations": [
+      "./dist/migrations/*.js"
+    ],
+    "cli": {
+      "migrationsDir": "src/migrations"
+    }
+  }
+]

@@ -1,0 +1,72 @@
+{
+  "name": "backend-template",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/CoryBall/backend-template.git",
+  "author": "cory ball",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc",
+    "start": "node -r dotenv/config ./dist/server.js",
+    "dev": "nodemon --watch .env --watch ./src -r dotenv/config --exec ts-node --files src/server.ts",
+    "database:migration": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
+    "database:update": "ts-node ./node_modules/typeorm/cli.js migration:run"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.22.2",
+    "argon2": "^0.27.2",
+    "aws-sdk": "^2.878.0",
+    "body-parser": "^1.19.0",
+    "class-validator": "^0.13.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "graphql-redis-subscriptions": "^2.3.1",
+    "graphql-subscriptions": "^1.2.1",
+    "graphql-upload": "^11.0.0",
+    "ioredis": "^4.24.6",
+    "jsonwebtoken": "^8.5.1",
+    "mime-types": "^2.1.30",
+    "pg": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "typedi": "^0.10.0",
+    "typeorm": "^0.2.32",
+    "typeorm-typedi-extensions": "^0.4.1",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/aws-sdk": "^2.7.0",
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
+    "@types/graphql-upload": "^8.0.4",
+    "@types/ioredis": "^4.22.2",
+    "@types/jest": "^26.0.22",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/mime-types": "^2.1.0",
+    "@types/node": "^14.14.37",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": ".ts,.js",
+    "ignore": [],
+    "exec": "ts-node ./src/server.ts"
+  }
+}
