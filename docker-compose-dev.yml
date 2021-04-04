@@ -7,6 +7,10 @@ services:
     image: docker.pkg.github.com/coryball/backend-template/template-server
     ports:
       - "4000:4000"
+    depends_on:
+      - postgres
+      - redis
+    env_file: env/dev.env
   postgres:
     container_name: backend_template_database
     image: postgres:13.2
@@ -20,7 +24,7 @@ services:
       POSTGRES_DB: $DATABASE_NAME
       POSTGRES_PORT: $DATABASE_PORT
       PGDATA: /data/postgres
-    env_file: .env
+    env_file: env/dev.env
     volumes:
       - ./.docker/data/:/data/postgres
       - ./.docker/psql_scripts/:/docker-entrypoint-initdb.d/

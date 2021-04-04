@@ -56,4 +56,4 @@ test/**/*.js.map
 /.docker
 
 # ENV
-.env
+*.env

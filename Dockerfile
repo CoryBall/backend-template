@@ -7,7 +7,6 @@ COPY package*.json ./
 COPY yarn.lock ./
 RUN yarn install
 COPY . .
-COPY ormconfig.docker.json ./src/ormconfig.json
 RUN yarn build
 
 # Final
@@ -15,9 +14,11 @@ FROM node AS final
 RUN mkdir -p /app/dist
 WORKDIR /app
 COPY package*.json ./
+COPY ormconfig.docker.json ./ormconfig.json
 RUN yarn install --production
 COPY --from=build /app/dist ./dist
 
 ENV NODE_ENV=production
 EXPOSE 4000
-ENTRYPOINT ["node", "./dist/index.js"]
+CMD ["yarn", "start:prod"]
+#ENTRYPOINT ["node", "./dist/server.js"]

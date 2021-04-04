@@ -9,8 +9,9 @@
   "scripts": {
     "watch": "tsc -w",
     "build": "tsc",
-    "start": "node -r dotenv/config ./dist/server.js",
-    "dev": "nodemon --watch .env --watch ./src -r dotenv/config --exec ts-node --files src/server.ts",
+    "start": "node -r dotenv/config ./dist/server.js dotenv_config_path=env/dev.env",
+    "start:prod": "node -r dotenv/config ./dist/server.js dotenv_config_path=env/prod.env",
+    "dev": "nodemon --watch .env --watch ./src -r dotenv/config --exec ts-node --files src/server.ts dotenv_config_path=env/dev.env",
     "database:migration": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
     "database:update": "ts-node ./node_modules/typeorm/cli.js migration:run"
   },

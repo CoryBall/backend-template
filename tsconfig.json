@@ -38,8 +38,7 @@
     ".eslintrc.js",
     ".prettierrc",
     "docker-compose.yml",
-    "docker-compose-dev.yml",
-    "ormconfig.docker.json"
+    "docker-compose-dev.yml"
   ],
   "files": ["src/global.d.ts"]
 }

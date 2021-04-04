@@ -18,7 +18,7 @@ export class StorageService {
     progressCallback: (progress: FileProgress) => Promise<void>
   ): Promise<Image> {
     const s3Client = new aws.S3({
-      endpoint: this.storageConfig.host,
+      endpoint: new aws.Endpoint(this.storageConfig.host),
       params: {
         ACL: 'public-read',
         Bucket: this.storageConfig.bucket,
