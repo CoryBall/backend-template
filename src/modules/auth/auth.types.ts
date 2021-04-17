@@ -1,10 +1,10 @@
-import {Field, ID, InputType, ObjectType} from "type-graphql";
+import { Field, ID, InputType, ObjectType } from 'type-graphql';
 
 @InputType()
 export class Credentials {
-  @Field({nullable: false})
+  @Field({ nullable: false })
   email: string;
-  @Field({nullable: false})
+  @Field({ nullable: false })
   password: string;
 }
 

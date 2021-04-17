@@ -1,3 +1,3 @@
 export enum StorageTopic {
-  UploadProgress = "UPLOAD_PROGRESS",
+  UploadProgress = 'UPLOAD_PROGRESS',
 }

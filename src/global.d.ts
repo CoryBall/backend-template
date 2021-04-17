@@ -1,4 +1,4 @@
-import {User} from "./models";
+import { User } from './models';
 
 declare global {
   namespace Express {
@@ -9,6 +9,6 @@ declare global {
   type DataContext = {
     req: Express.Request;
     res: Express.Response;
-  }
+  };
   type Nullable<T> = T | null;
 }

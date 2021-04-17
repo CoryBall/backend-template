@@ -13,7 +13,10 @@
     "start:prod": "node -r dotenv/config ./dist/server.js dotenv_config_path=env/prod.env",
     "dev": "nodemon --watch .env --watch ./src -r dotenv/config --exec ts-node --files src/server.ts dotenv_config_path=env/dev.env",
     "database:migration": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
-    "database:update": "ts-node ./node_modules/typeorm/cli.js migration:run"
+    "database:update": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "lint": "eslint --ext .tsx --ext .ts src/",
+    "lint:fix": "eslint ./src/** --fix",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "apollo-server-express": "^2.22.2",
@@ -56,7 +59,9 @@
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
@@ -69,5 +74,10 @@
     "ext": ".ts,.js",
     "ignore": [],
     "exec": "ts-node ./src/server.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit"
+    }
   }
 }

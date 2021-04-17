@@ -6,9 +6,9 @@ import Role from './role.entity';
 import { IsPhoneNumber } from 'class-validator';
 
 export enum AuthRole {
-  User = "USER",
-  Admin = "ADMIN",
-  SuperAdmin = "SUPER_ADMIN"
+  User = 'USER',
+  Admin = 'ADMIN',
+  SuperAdmin = 'SUPER_ADMIN',
 }
 
 @ObjectType()
