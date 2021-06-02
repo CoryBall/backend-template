@@ -17,12 +17,14 @@ services:
         aliases:
           - server
     env_file:
-      - env/dev.env
+      - env/prod.env
+    ports:
+    - 4000:4000
   postgres:
     container_name: backend_template_database
     image: postgres:13.2
     env_file:
-      - env/dev.env
+      - env/prod.env
     expose:
       - 5432
     volumes:
